@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "realesrgan"
+version = "0.3.0"
+requires-python = ">=3.8"
+
+description = "Real-ESRGAN aims at developing Practical Algorithms for General Image Restoration"
+readme = "README.md"
+
+license = "BSD-3-Clause"
+
+authors = [
+  { name = "Xintao Wang", email = "xintao.wang@outlook.com" },
+]
+
+keywords = [
+  "computer vision",
+  "pytorch",
+  "image restoration",
+  "super-resolution",
+  "esrgan",
+  "real-esrgan",
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+]
+
+# 这里列的是 Real-ESRGAN 运行时主要依赖。
+# 你环境里很多已经因为 GFPGAN 装好了，所以更多是给 uv 一个声明。
+dependencies = [
+  "torch>=1.7",
+  "torchvision>=0.8",
+  "numpy>=1.19",
+  "opencv-python>=4.5",
+  "basicsr>=1.4.2",
+  "facexlib>=0.2.5",
+  "pyyaml>=6.0",
+  "scipy>=1.6",
+  "tqdm>=4.60",
+]
+
+[tool.setuptools.packages.find]
+# 避免把 datasets/experiments 等目录当成包
+include = ["realesrgan*"]
